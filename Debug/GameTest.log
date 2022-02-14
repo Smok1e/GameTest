@@ -1,0 +1,32 @@
+﻿  Collision.cpp
+C:\Users\fedot\source\repos\GameTest\GameTest\Collision.cpp(73,12): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\fedot\source\repos\GameTest\GameTest\Collision.cpp(74,12): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\fedot\source\repos\GameTest\GameTest\Collision.cpp(76,32): warning C4244: '*=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\fedot\source\repos\GameTest\GameTest\Collision.cpp(77,32): warning C4244: '*=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\fedot\source\repos\GameTest\GameTest\Collision.cpp(87,9): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\fedot\source\repos\GameTest\GameTest\Collision.cpp(88,9): warning C4244: '/=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  GameTest.vcxproj -> C:\Users\fedot\source\repos\GameTest\Debug\GameTest.exe
