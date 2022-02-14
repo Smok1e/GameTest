@@ -115,11 +115,11 @@ void Game::run ()
 
 		if (!m_paused)
 		{
-			m_manager.moveObjects   (getBounds ());
-			m_manager.updateObjects ();
+			m_manager.moveObjects      (getBounds ());
+			m_manager.updateObjects    ();
+			m_manager.processCollision ();
 		}
-									  
-		m_manager.processCollision     ();
+
 		m_manager.drawObjects          (&m_window);
 		m_manager.removeDeletedObjects ();
 
@@ -145,6 +145,9 @@ void Game::run ()
 
 			m_window.draw (text);
 		}
+
+		if (sf::Mouse::isButtonPressed (sf::Mouse::Right))
+			addObject (new PlayerParticle (getMousePosition (), sf::Vector2f (0, 0)));
 
 		m_window.display ();
 

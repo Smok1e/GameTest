@@ -139,8 +139,8 @@ void Object::update ()
 
 bool Object::testCollision (Object* that)
 {
-	double distance_x = that -> m_pos.x - m_pos.x;
-	double distance_y = that -> m_pos.y - m_pos.y;
+	double distance_x = (that -> m_pos.x + that -> m_r) - (m_pos.x + m_r);
+	double distance_y = (that -> m_pos.y + that -> m_r) - (m_pos.y + m_r);
 
 	double distance = sqrt (distance_x*distance_x + distance_y*distance_y);
 

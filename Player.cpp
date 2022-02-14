@@ -84,14 +84,14 @@ void Player::update ()
 	m_vel.x = Clamp (m_vel.x, -s_max_velocity.x, s_max_velocity.x);
 	m_vel.y = Clamp (m_vel.y, -s_max_velocity.y, s_max_velocity.y);	
 
-	if (Chance (sqrt (m_vel.x*m_vel.x + m_vel.y*m_vel.y) * 20.0 * s_speed_modifier))
+	if (Chance (sqrt (m_vel.x*m_vel.x + m_vel.y*m_vel.y) * 20.0 * s_speed_modifier * 0))
 	{
 		double angle = static_cast <double> (rand () % 360) / (M_PI*2);
 		sf::Vector2f position = m_pos + sf::Vector2f (m_r + cos (angle)*(m_r-3), m_r + sin (angle)*(m_r-3));
 		sf::Vector2f velocity = sf::Vector2f (cos (angle) * m_r / 20, sin (angle) * m_r / 20);
 
 		PlayerParticle* particle = new PlayerParticle (position, velocity, m_color);
-		particle -> setRadius (Random (2, 4 ));
+		particle -> setRadius (Random (2, 4));
 
 		m_game -> addObject (particle);
 	}
