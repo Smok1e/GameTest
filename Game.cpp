@@ -146,9 +146,6 @@ void Game::run ()
 			m_window.draw (text);
 		}
 
-		if (sf::Mouse::isButtonPressed (sf::Mouse::Right))
-			addObject (new PlayerParticle (getMousePosition (), sf::Vector2f (0, 0)));
-
 		m_window.display ();
 
 		m_last_display_time = clock.getElapsedTime ().asMilliseconds ();

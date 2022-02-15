@@ -6,7 +6,7 @@
 
 double PlayerParticle::s_counter_limit = 200;
 
-const double RANDOM_ACURACY = 1000;
+const double RANDOM_ACCURACY = 1000;
 
 //------------------------
 
@@ -31,15 +31,15 @@ PlayerParticle::PlayerParticle (const PlayerParticle& copy):
 
 void PlayerParticle::update ()
 {
-	//m_counter += 0.2;
+	m_counter += 0.2;
 
 	if (m_counter >= s_counter_limit)
 		m_game -> getManager () -> deleteObject (this);
 
-	//m_vel += sf::Vector2f (
-	//	(((rand () % static_cast <int> (RANDOM_ACURACY*2)) - RANDOM_ACURACY) / RANDOM_ACURACY) / 10,
-	//	(((rand () % static_cast <int> (RANDOM_ACURACY*2)) - RANDOM_ACURACY) / RANDOM_ACURACY) / 10
-	//);
+	m_vel += sf::Vector2f (
+		(((rand () % static_cast <int> (RANDOM_ACCURACY*2)) - RANDOM_ACCURACY) / RANDOM_ACCURACY) / 10,
+		(((rand () % static_cast <int> (RANDOM_ACCURACY*2)) - RANDOM_ACCURACY) / RANDOM_ACCURACY) / 10
+	);
 }
 
 //------------------------

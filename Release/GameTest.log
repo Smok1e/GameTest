@@ -1,7 +1,7 @@
-﻿  Object.cpp
+﻿  Game.cpp
   Generating code
-  1 of 534 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  59 of 533 functions (11.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    9 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   GameTest.vcxproj -> C:\Users\fedot\source\repos\GameTest\Release\GameTest.exe
