@@ -58,7 +58,8 @@ void Game::init ()
 			{"Resources/Sounds/Eat5.ogg",  SoundEat5 },
 			{"Resources/Sounds/Eat6.ogg",  SoundEat6 },
 			{"Resources/Sounds/Eat7.ogg",  SoundEat7 },
-			{"Resources/Sounds/Death.ogg", SoundDeath}
+			{"Resources/Sounds/Death.ogg", SoundDeath},
+			{"Resources/Sounds/Hit.ogg",   SoundHit  }
 		},
 
 		// Fonts
@@ -144,6 +145,15 @@ void Game::run ()
 			text.setPosition      (5, 5);
 
 			m_window.draw (text);
+		}
+
+		if (sf::Mouse::isButtonPressed (sf::Mouse::Right))
+		{
+			PlayerParticle* object = new PlayerParticle (getMousePosition (), sf::Vector2f (0, 0));
+			object -> setRadius (10);
+			object -> setColor  (HSV (rand () % 256, 255, 255));
+
+			addObject (object);
 		}
 
 		m_window.display ();
@@ -235,6 +245,9 @@ void Game::drawDebugInfo ()
 			if (!object) continue;
 
 			points[1] = object -> getPosition () + sf::Vector2f (object -> getRadius (), object -> getRadius ());
+
+			points[0].color = object -> getColor ();
+			points[1].color = object -> getColor ();
 			m_window.draw (points, 2, sf::Lines);
 		}
 	}

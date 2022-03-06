@@ -3,7 +3,7 @@ uniform float radius;
 uniform vec4  center_color;
 uniform vec4  border_color;
 uniform float y_bound;
-uniform float shift = .0;
+uniform float shift = .7;
 
 //------------------------
 

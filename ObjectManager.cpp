@@ -36,7 +36,7 @@ void ObjectManager::deleteObject (Object* object)
 	auto iter = std::find (m_objects.begin (), m_objects.end (), object);
 	if (iter != m_objects.end ())
 	{
-		delete[] (*iter);
+		delete (*iter);
 		*iter = nullptr;
 	}
 
@@ -113,7 +113,7 @@ void ObjectManager::clear ()
 	Trace ("Deleting all objects");
 
 	for (auto& object: m_objects)
-		delete[] (object);
+		delete (object);
 
 	m_objects.clear ();
 }

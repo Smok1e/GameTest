@@ -134,3 +134,14 @@ int Random (int min, int max)
 }
 
 //------------------------
+
+sf::Vector2f GetHitPoint (sf::Vector2f pos1, double r1, sf::Vector2f pos2)
+{
+	sf::Vector2f difference = pos2 - pos1;
+	sf::Vector2f direction  = NormalizeVector (difference);
+	sf::Vector2f hit_point  = pos1 + sf::Vector2f (direction.x * r1, direction.y * r1);
+
+	return hit_point;
+}
+
+//------------------------

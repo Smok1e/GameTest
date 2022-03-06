@@ -71,12 +71,12 @@ void Player::update ()
 
 		double c = sqrt (a*a + b*b);
 
-		m_vel.x += (a/c) / 5;
-		m_vel.y += (b/c) / 5;
+		m_vel.x += ((a/c) / 5) * s_speed_modifier;
+		m_vel.y += ((b/c) / 5) * s_speed_modifier;
 	}
 
-	m_vel.x *= 0.98;
-	m_vel.y *= 0.98;
+	m_vel.x /= (1.0 + 0.02 * s_speed_modifier);
+	m_vel.y /= (1.0 + 0.02 * s_speed_modifier);
 
 	if (fabs (m_vel.x) <= 0.01) m_vel.x = 0;
 	if (fabs (m_vel.y) <= 0.01) m_vel.y = 0;

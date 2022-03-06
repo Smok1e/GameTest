@@ -18,7 +18,8 @@ enum Resources
 	SoundEat5,
 	SoundEat6,
 	SoundEat7,
-	SoundDeath
+	SoundDeath,
+	SoundHit
 };
 
 //------------------------

@@ -31,7 +31,7 @@ PlayerParticle::PlayerParticle (const PlayerParticle& copy):
 
 void PlayerParticle::update ()
 {
-	m_counter += 0.2;
+	m_counter += 0.2 * s_speed_modifier;
 
 	if (m_counter >= s_counter_limit)
 		m_game -> getManager () -> deleteObject (this);
@@ -64,7 +64,8 @@ void PlayerParticle::draw (sf::RenderWindow* window)
 	shader.setUniform ("radius",       circle.getRadius    ()                      );
 	shader.setUniform ("center_color", sf::Glsl::Vec4      (center)                );
 	shader.setUniform ("border_color", sf::Glsl::Vec4      (border)                );
-	shader.setUniform ("y_bound",      static_cast <float> (window -> getSize ().y)); 
+	shader.setUniform ("y_bound",      static_cast <float> (window -> getSize ().y));
+	shader.setUniform ("shift",        0.3f                                        );
 
 	window -> draw (circle, &shader);
 }
@@ -73,7 +74,7 @@ void PlayerParticle::draw (sf::RenderWindow* window)
 
 std::string PlayerParticle::getDebugString ()
 {
-	return "di nah";
+	return Object::getDebugString ();
 }
 
 //------------------------

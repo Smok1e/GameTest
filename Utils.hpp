@@ -30,12 +30,22 @@
 template <typename TypeValue, typename TypeMin, typename TypeMax>
 TypeValue Clamp (TypeValue value, const TypeMin& min, const TypeMax& max);
 
-std::string Format      (const char* format, ...);
-std::string Format      (const char* format, va_list args);
-bool        Chance      (size_t probability);
-sf::Color   Interpolate (sf::Color lft, sf::Color rgt, double t);
-sf::Color   HSV         (int h, int s, int v, int a = 255);
-int         Random      (int min, int max);
+std::string  Format      (const char* format, ...);
+std::string  Format      (const char* format, va_list args);
+bool         Chance      (size_t probability);
+sf::Color    Interpolate (sf::Color lft, sf::Color rgt, double t);
+sf::Color    HSV         (int h, int s, int v, int a = 255);
+int          Random      (int min, int max);
+sf::Vector2f GetHitPoint (sf::Vector2f pos1, double r1, sf::Vector2f pos2);
+
+template <typename T>
+double VectorDistance (const sf::Vector2 <T>& a, const sf::Vector2 <T>& b);
+
+template <typename T>
+double VectorLength (const sf::Vector2 <T>& vector);
+
+template <typename T>
+sf::Vector2 <T> NormalizeVector (const sf::Vector2 <T>& vector);
 
 //------------------------
 
@@ -46,6 +56,34 @@ TypeValue Clamp (TypeValue value, const TypeMin& min, const TypeMax& max)
 	if (value > max) value = max;
 
 	return value;
+}
+
+//------------------------
+
+template <typename T>
+T VectorDistance (const sf::Vector2 <T>& a, const sf::Vector2 <T>& b)
+{
+	double distance_x = static_cast <double> (b.x - a.x);
+	double distance_y = static_cast <double> (b.y - a.y);
+
+	return sqrt (distance_x*distance_x + distance_y*distance_y); 
+}
+
+//------------------------
+
+template <typename T>
+double VectorLength (const sf::Vector2 <T>& vector)
+{
+	return sqrt (vector.x*vector.x + vector.y*vector.y);
+}
+
+//------------------------
+
+template <typename T>
+sf::Vector2 <T> NormalizeVector (const sf::Vector2 <T>& vector)
+{
+	double len = VectorLength (vector);
+	return sf::Vector2 <T> (vector.x / len, vector.y / len);
 }
 
 //------------------------

@@ -86,7 +86,7 @@ void Food::update ()
 	if (m_counter >= m_counter_limit)
 		m_game -> onGameOver ();
 
-	else m_counter += 1.0 / s_speed_modifier;
+	else m_counter += 1.0 * s_speed_modifier;
 }
 
 //------------------------
